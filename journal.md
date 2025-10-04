@@ -1,1 +1,3 @@
 #Journal de bord du projet encadré
+
+## Aujourd'hui, après avoir créer mon compte Github, j'ai appris à le récuperer et à le mettre sur mon ordinateur. J'y ai créée un journal de bord, et j'ai appris comment faire afin que ce que le dossier j'ai sur mon ordinateur soit synchronisé sur Github. J'ai utilisé pull pour faire venir le journal d'internet vers mon ordinateur, et j'ai utilisé push afin de faire l'inverse. 
