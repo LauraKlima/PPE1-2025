@@ -1,8 +1,7 @@
 #!/bin/bash
 
-echo "lieux en 2016:"
-cat 2016/* | grep Location | wc -l
-echo "lieux en 2017:"
-cat 2017/* | grep Location | wc -l
-echo "lieux en 2018:"
-cat 2018/* | grep Location | wc -l
+for annee in 2016 2017 2018; do 
+    echo "lieux en $annee:"
+
+    cat "$annee"/* | grep Location | wc -l
+done
