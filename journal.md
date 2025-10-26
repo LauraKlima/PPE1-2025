@@ -1,6 +1,7 @@
-#Journal de bord du projet encadré
+##Journal de bord du projet encadré
 
 Aujourd'hui, après avoir créer mon compte Github, j'ai appris à le récuperer et à le mettre sur mon ordinateur. J'y ai créée un journal de bord, et j'ai appris comment faire afin que ce que le dossier j'ai sur mon ordinateur soit synchronisé sur Github. J'ai utilisé pull pour faire venir le journal d'internet vers mon ordinateur, et j'ai utilisé push afin de faire l'inverse. 
+
 finalement, juste faire push n'est pas suffisant, il est nécessaire de commit avant. rajouter cette phrase me permet de vérifier que j'ai bien retenu la démarche. 
 
 Cher journal, ces deux dernières semaines furent compliquées au niveau du travail en PPE. Nous avons découvert le 8 octobre les scripts bash. Premièrement, j'ai eu beaucoup de mal à comprendre ce à quoi c'était censé ressembler, et comment cela fonctionnait. Néanmoins, une fois avoir compris que je peux créer ça directement depuis VS Code (qui comprend que c'est un script bash après avoir mis en place un shebang en premiere ligne(même si je ne suis pas sûr d'avoir bien commpris pourquoi il y avait "bin" à l'intérieur, mais soit)), j'ai réussis grâce au powerpoint, ainsi qu'à plusieurs recherches internet, à faire le premier script. J'ai dû néanmoins reprendre ma petite fiche révision qui me rappelle comment ajouter un travail à git/github. 
@@ -15,3 +16,36 @@ J'ai bien créer, en revanche, la boucle dans mon tout premier script.
 Explication de code : ce qui est interessant avec le code qui nous a été demandé d'expliquer, est le fait qu'il possède une boucle while. La boucle while a été utilisée afin de savoir combien de liens valides étaient présents dans un fichier. Donc ce programme a eu pour objectif de de lire chaque ligne du fichier et dire si les liens https présents sur ce fichiers étaient corrects ou non. selon si les liens étaient corrects ou non, le programme devait écrire textuellement "ressemble à une url valide" ou "ne ressemble pas à une url valide" et à la fin lister combien il y en avait de chaque.
 
 C'est plus d'une semaine apres avoir fini l'exercice, lors du moment que je prends pour rédiger mon journal, que je me rends compte que j'ai completement oublié de rajouter un tag au devoir fini. En espérant que ce soit rattrapable...
+Grâce à cet oubli j'ai pu découvrir qu'il est possible d'ajouter des tags après coup (--oneline pour voir la liste des tags, et chacun porte une combinaison de lettres et de chiffres qui permet de les distinquer les uns des autres). 
+
+
+
+Cher journal, aujourd'hui j'ai décidé de commencer le "mini" projet. Avant tout, j'ai repris toutes les slides pour bien comprendre ce qu'on avait vu en cours (qu'est-ce qu'est Lynx, cURL et wget, la différence entre http et https, etc).
+
+Questions :  
+Exo 1: 1.Pourquoi ne pas utiliser cat? Si on souhaite utiliser cat il faudrait rajouter plus de choses autour, donc ça prendrait plus de temps à écrire et ce serait moins économe. Moins d'étapes. 
+
+Je dois bien me souvenir de modifier comment s'appelle le fichier qui sera lu par le script si jamais je le change (je l'ai appris à mes dépend étant donné qu'au début je n'avais pas placé le fichier fr.txt dans un dossier nommé urls, et je m'étonnais que le script de base (dans le quel il est demandé d'ouvrir urls/fr.txt)ne marchait pas...)
+
+2.Comment le transformer en paramètre de script? utiliser $
+
+2,1. Valider l'argument : donc si je comprends bien, il faut que le script dise "je vérifie si on me donne bel et bien un fichier à lire sinon on s'arrete". Si c'est bien ça, j'imagine qu'il faut ajouter quelque chose du style if [ hhhh -eq 0]; then echo "erreur" exit 1
+
+3.comment afficher le numéro de ligne. j'imagine qu'il est malheureusment pas possible de juste modifier le fichier fr.txt à la main. J'ai donc trouvé sur de vieux forum très sympathique datant d'avant ma naissance comment faire : ça ressmeblait legerement à python donc j'ai mieux compris que ce qu'on faisait avant, lorsqu'on créer une variable et qu'on lui assigne 1, on peut apres lui ajouter un chiffre à chaque tour dans la boucle en faisant ((blabla++)). Aussi j'ai appris que malheureusment juste séparer le numéro de ligne de l'URL par un simple tab (en appuyant sur la touche du clavier)ne marche pas, car quand j'essaye de le supprimer, ça se divise en espaces, j'ai dû donc utiliser \t. mais \t ne marche pas tout seul, j'ai dû donner -e en argument à echo. (Des listes avec explications sont facilement trouvables sur internet, même si je ne suis pas sûre de tous les comprendre. par exemple \v affiche un "onglet vertical" mais je ne vois pas encore ce que c'est. mais au moins j'ai une liste sous la main qui me sera utile plus tard)
+
+Exo 2: une fois cet exercice accompli, ce que va me sortir mon scritp c'est donc le numéro de ligne, le lien url, le truc de réponse à la requete (la liste qu'on a vu en cours, de 100 à 500), l'encodage de la page (je ne connais pour l'instant que UTF-8, work in progress), le nombre de mot pour la page. 
+sans faire aucune recherche, je sais déjà que pour le nombre de mot je vais devoir utiliser wc, et pour le reste j'imagine cURL. Je suis pour l'instnat très confuse car je pensais que pour utiliser cURL je dois utiliser le terminal mais comment je peux utiliser le terminal si je lance mon script bash? 
+
+
+
+
+
+Aide mémoire : 
+commandes basiques : site linux commands cheat sheet dans mes favoris
+-eq : =
+-ne : ≠
+-lt : inférieur à, <
+-gt : supérieur à, > 
+if finit toujours pas fi 
+< redirige vers un fichier 
+| jsp, à chercher
