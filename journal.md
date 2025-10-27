@@ -1,4 +1,4 @@
-##Journal de bord du projet encadré
+Journal de bord du projet encadré
 
 Aujourd'hui, après avoir créer mon compte Github, j'ai appris à le récuperer et à le mettre sur mon ordinateur. J'y ai créée un journal de bord, et j'ai appris comment faire afin que ce que le dossier j'ai sur mon ordinateur soit synchronisé sur Github. J'ai utilisé pull pour faire venir le journal d'internet vers mon ordinateur, et j'ai utilisé push afin de faire l'inverse. 
 
@@ -29,23 +29,27 @@ Je dois bien me souvenir de modifier comment s'appelle le fichier qui sera lu pa
 
 2.Comment le transformer en paramètre de script? utiliser $
 
-2,1. Valider l'argument : donc si je comprends bien, il faut que le script dise "je vérifie si on me donne bel et bien un fichier à lire sinon on s'arrete". Si c'est bien ça, j'imagine qu'il faut ajouter quelque chose du style if [ hhhh -eq 0]; then echo "erreur" exit 1
+2,1. Valider l'argument : donc si je comprends bien, il faut que le script dise "je vérifie si on me donne bel et bien un fichier à lire sinon on s'arrete". Si c'est bien ça, j'imagine qu'il faut ajouter quelque chose du style if [ mhhhhh -eq 0]; then echo "erreur"
 
-3.comment afficher le numéro de ligne. j'imagine qu'il est malheureusment pas possible de juste modifier le fichier fr.txt à la main. J'ai donc trouvé sur de vieux forum très sympathique datant d'avant ma naissance comment faire : ça ressmeblait legerement à python donc j'ai mieux compris que ce qu'on faisait avant, lorsqu'on créer une variable et qu'on lui assigne 1, on peut apres lui ajouter un chiffre à chaque tour dans la boucle en faisant ((blabla++)). Aussi j'ai appris que malheureusment juste séparer le numéro de ligne de l'URL par un simple tab (en appuyant sur la touche du clavier)ne marche pas, car quand j'essaye de le supprimer, ça se divise en espaces, j'ai dû donc utiliser \t. mais \t ne marche pas tout seul, j'ai dû donner -e en argument à echo. (Des listes avec explications sont facilement trouvables sur internet, même si je ne suis pas sûre de tous les comprendre. par exemple \v affiche un "onglet vertical" mais je ne vois pas encore ce que c'est. mais au moins j'ai une liste sous la main qui me sera utile plus tard)
+3.comment afficher le numéro de ligne. j'imagine qu'il est malheureusment pas possible de juste modifier le fichier fr.txt à la main. J'ai donc trouvé sur de vieux forum très sympathique datant d'avant ma naissance comment faire : ça ressmeblait legerement à python donc j'ai mieux compris que ce qu'on faisait avant, lorsqu'on créer une variable et qu'on lui assigne 1, on peut apres lui ajouter un chiffre à chaque tour dans la boucle en faisant ((blabla++)). Aussi j'ai appris que malheureusment juste séparer le numéro de ligne de l'URL par un simple tab (en appuyant sur la touche du clavier)ne marche pas, car quand j'essaye de le supprimer, ça se divise en espaces, j'ai dû donc utiliser \t (\n aurait été pour un saut de ligne). mais \t ne marche pas tout seul, j'ai dû donner -e en argument à echo. (Des listes avec explications sont facilement trouvables sur internet, même si je ne suis pas sûre de tous les comprendre. par exemple \v affiche un "onglet vertical" mais je ne vois pas encore ce que c'est. mais au moins j'ai une liste sous la main qui me sera utile plus tard)
 
 Exo 2: une fois cet exercice accompli, ce que va me sortir mon scritp c'est donc le numéro de ligne, le lien url, le truc de réponse à la requete (la liste qu'on a vu en cours, de 100 à 500), l'encodage de la page (je ne connais pour l'instant que UTF-8, work in progress), le nombre de mot pour la page. 
 sans faire aucune recherche, je sais déjà que pour le nombre de mot je vais devoir utiliser wc, et pour le reste j'imagine cURL. Je suis pour l'instnat très confuse car je pensais que pour utiliser cURL je dois utiliser le terminal mais comment je peux utiliser le terminal si je lance mon script bash? 
+Après quelques temps de recherche, c'est bien cURL qu'il faut utliser, avec des options. J'imagine qu'on va assigner le résultat à une "fonction" et apres on va echo le numéro de la ligne, la fonction qui contient le numéro de ligne puis la fonction qui cherche le code requete. Je vais l'inclure dans la boucle, vu que le code requete doit etre cherché pour tous les liens. 
+Dans cette meme boucle j'imagine qu'il faudra inclure le truc pour chercher le nombre de mots et l'encodage. 
+J'ai cru que les fichiers tsv etaient compliqués à créer mais finalement ça va, donc j'imagine que la derniere ligne de mon script qui va donc afficher les résultats je vais devoir faire quelque chose du style numérotation\tlien\tcodehttp\tencodage\tnombredemots
+Je ne suis vraiment pas sûre d'avoir bien compris si ces resultats doivent s'afficher sur le terminal simplement ou si je dois les mettres dans un document. je vais au début essayer de le faire s'afficher dans le terminal pour voir si ça marche, et si ça marche je vais le mettre dans un fichier pour voir si je peux l'ouvrir avec excel après. 
+Est ce que si je lance le script plusieurs fois ça va créer plusieurs fichiers pareils? 
+Ok, non, le contenu sera écrasé 
+J'ai trouvé comment faire pour afficher le code http sur un forum ubuntu (curl -s -o /dev/null -w "%{http_code}"). -s , silence, pour pas que tout le processus s'affiche, -o, output, -w write out
 
+Je passe au comptage de mots, car l'encodage m'intimide vu que je n'ai pas encore une idée claire de ce que c'est. 
+je vais tester curl | wc -w 
+ok ça marche pas, le résultat qui ressort est zéro 
+ok j'ai oublié le $
 
+Alors, j'ai obtenu des résultats, mais ils sont étonnants pour certains. Le site numéro 3, wikipedia robot d'indexaction me montre requete 301, moved permanently. Le site de Monsieur Magistry ne marche pas non plus, requete 000. Enfin, les trois derniers sites wiki m'indiquent 264 mots et requete 429, donc too many requests. 
+On m'a recommandé de rajouter -L pour le site 301. je ne savais pas où le mettre donc au début je l'ai mis à la fin, mais ça m'a sorti un tres grand nombre de lignes, donc je l'ai mis au milieu (entre -s et -o)et ça a marché. je n'ai pas testé de le mettre avant -s. Néanmoins, même si le code requete a changé (on est passé de 301 à 200), le nombre de mots reste à 0. 
+J'ai rajouté un sleep 1 afin de voir si les trois derniers sites allaient marcher maintenant que je ne fais pas autant de requete d'un coup, et oui ça a marché (encore une fois, merci aux forums). Par contre, le site numéro 3 reste toujours à 0 en terme de nombre de mots. 
 
-
-
-Aide mémoire : 
-commandes basiques : site linux commands cheat sheet dans mes favoris
--eq : =
--ne : ≠
--lt : inférieur à, <
--gt : supérieur à, > 
-if finit toujours pas fi 
-< redirige vers un fichier 
-| jsp, à chercher
+Je vais passer à l'encodage que je n'avais pas fait avant de revenir à ce troisieme lien. 
