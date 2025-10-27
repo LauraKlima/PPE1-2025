@@ -44,12 +44,29 @@ Ok, non, le contenu sera écrasé
 J'ai trouvé comment faire pour afficher le code http sur un forum ubuntu (curl -s -o /dev/null -w "%{http_code}"). -s , silence, pour pas que tout le processus s'affiche, -o, output, -w write out
 
 Je passe au comptage de mots, car l'encodage m'intimide vu que je n'ai pas encore une idée claire de ce que c'est. 
+
 je vais tester curl | wc -w 
+
 ok ça marche pas, le résultat qui ressort est zéro 
+
 ok j'ai oublié le $
 
 Alors, j'ai obtenu des résultats, mais ils sont étonnants pour certains. Le site numéro 3, wikipedia robot d'indexaction me montre requete 301, moved permanently. Le site de Monsieur Magistry ne marche pas non plus, requete 000. Enfin, les trois derniers sites wiki m'indiquent 264 mots et requete 429, donc too many requests. 
+
 On m'a recommandé de rajouter -L pour le site 301. je ne savais pas où le mettre donc au début je l'ai mis à la fin, mais ça m'a sorti un tres grand nombre de lignes, donc je l'ai mis au milieu (entre -s et -o)et ça a marché. je n'ai pas testé de le mettre avant -s. Néanmoins, même si le code requete a changé (on est passé de 301 à 200), le nombre de mots reste à 0. 
+
 J'ai rajouté un sleep 1 afin de voir si les trois derniers sites allaient marcher maintenant que je ne fais pas autant de requete d'un coup, et oui ça a marché (encore une fois, merci aux forums). Par contre, le site numéro 3 reste toujours à 0 en terme de nombre de mots. 
 
 Je vais passer à l'encodage que je n'avais pas fait avant de revenir à ce troisieme lien. 
+
+bon je n'ai toujours pas trouvé la solution au troisieme lien. 
+
+pour l'encodage, j'ai pas utilisé curl car pour une raison qui m'échappe quand j'ai testé avec, tous les autres résulatats que j'avais (comptage de mots, code requete) disparaissaient. On m'a conseillé d'utiliser lynx. -source permet de faire en sorce de voir la page en HTML donc c'est là qu'on verra quel encodage a été utilisé. on lui demande de prendre la variable avec nos liens. on met un pipe pour que le resultat puisse etre vu par grep. vu que je voulais pas que sur chaque ligne on voit "charset = utf-8" mais uniquement utf-8 j'ai mis option i pour ignorer. Head pour mettre les trucs du début (tail si on voulait la fin?) avec otpion n pour number et on a choisit 1 pour aficher que la premiere ligne. cut pour découper le résultat (comme dit auparavant, je voulais juste utf-8 pour faire joli), avec option -d pour choisir le séparateur qui donc ici sera " (vu qu'on l'a mis entre ' ').
+
+Je n'ai pas trouvé comment éviter le gros paragraphe que ressort lynx lorsqu'il arrive au site de Monsieur Magistry, mais ça ne me gene pas. 
+
+Conclusion : j'ai trouvé certains passages sympa à faire (j'ai été contente d'enfin comprendre la logique des $, et de voir qu'il y a des similitudes avec des choses que je comprends (le fait de increase le nombre de mon compteur en faisant ((compteur++)) par exemple)), mais globalement c'est resté difficile à accomplir. Heureusment pour moi, on trouve beaucoup de réponse sur les forums et sites spécialisés. 
+
+J'ai fini mon script du mini projet, je vais désormais le mettre sur github, et mettre le résultat du script dans un fichier txt. 
+
+Bonnes vacances Messieurs
