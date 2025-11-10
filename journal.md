@@ -1,4 +1,4 @@
-Journal de bord du projet encadré
+#Journal de bord du projet encadré
 
 Aujourd'hui, après avoir créer mon compte Github, j'ai appris à le récuperer et à le mettre sur mon ordinateur. J'y ai créée un journal de bord, et j'ai appris comment faire afin que ce que le dossier j'ai sur mon ordinateur soit synchronisé sur Github. J'ai utilisé pull pour faire venir le journal d'internet vers mon ordinateur, et j'ai utilisé push afin de faire l'inverse. 
 
@@ -70,3 +70,17 @@ Conclusion : j'ai trouvé certains passages sympa à faire (j'ai été contente 
 J'ai fini mon script du mini projet, je vais désormais le mettre sur github, et mettre le résultat du script dans un fichier txt. 
 
 Bonnes vacances Messieurs
+
+Cher Journal, 
+J'ai passé de bonnes vacances, bien reposantes, néanmoins il est temps de se remettre au travail. J'ai été très contente d'apprendre que cette semaine, nous devions travailler sur du html. Cela m'avait fait plaisir, étant donné que nous l'avions déjà découvert grâce au cours de construction de données, et j'avais trouvé la tâche très agréable à réaliser. 
+J'ai vite compris, par contre, que je n'allais pas pouvoir écrire l'entierté de la page à la main comme je l'avais souhaité, mais qu'il fallait utiliser le script bash afin de l'effectuer. 
+J'ai premièrement testé le fait d'uniquement remplacer les \t par les balises vues en cours. J'avais un léger espoir que ça allait marcher, mais cela n'a bien évidemment pas été le cas. 
+j'ai compris comment commencer le script et comment le finir, donc je me sentais confiante. 
+Puis j'ai eu comme erreur " line 22: syntax error near unexpected token `<' ". je ne comprenais vraiment pas d'où sortais mon erreur
+J'ai supprimé -e. ça ne marchait toujours pas 
+Puis je me suis rendu compte que j'avais oublié de mettre un " à la fin de la première ligne où j'avais fait un echo
+Je ne comprends pas comment ça se fait que mon terminal me disait que l'erreur se trouvait à la ligne 22 alors que ma ligne 22 allait très bien. je suis vraiment confuse.
+Mon fichier s'est enfin ouvert dans mon navigateur! 
+Mais il possède des problèmes d'encodage (les accents ne s'affichent pas bien), et il ne prend pas la forme d'un tableau avec des lignes mais juste des colonnes pas allignées séparés par des espaces. 
+OK pour l'encodage, j'ai trouvé, j'ai utilisé le <meta charset="UTF-8" /> que vous aviez utilisé sur votre gitbuh. au début ça marchait pas, puis j'ai essayé de mettre une tabulation, ça marchait pas toujours, puis j'ai essayé de mettre echo et ", et là ça a marché 
+J'ai été informée par mes camarades que ça ne devait pas prendre des lignes, donc problème réglé, et j'ai modifié l'ordre dans lequel j'affichais mes colonnes (je mettais avant l'url à la toute fin pour rendre le tout plus visible, mais finalement ça donnait l'effet inverse). Depuis que j'ai mis l'URL en deuxieme position, tout s'affiche beaucoup mieux, alors qu'avant la fin avait l'air collée. 
