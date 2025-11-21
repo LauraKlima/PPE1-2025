@@ -84,3 +84,11 @@ Mon fichier s'est enfin ouvert dans mon navigateur!
 Mais il possède des problèmes d'encodage (les accents ne s'affichent pas bien), et il ne prend pas la forme d'un tableau avec des lignes mais juste des colonnes pas allignées séparés par des espaces. 
 OK pour l'encodage, j'ai trouvé, j'ai utilisé le <meta charset="UTF-8" /> que vous aviez utilisé sur votre gitbuh. au début ça marchait pas, puis j'ai essayé de mettre une tabulation, ça marchait pas toujours, puis j'ai essayé de mettre echo et ", et là ça a marché 
 J'ai été informée par mes camarades que ça ne devait pas prendre des lignes, donc problème réglé, et j'ai modifié l'ordre dans lequel j'affichais mes colonnes (je mettais avant l'url à la toute fin pour rendre le tout plus visible, mais finalement ça donnait l'effet inverse). Depuis que j'ai mis l'URL en deuxieme position, tout s'affiche beaucoup mieux, alors qu'avant la fin avait l'air collée. 
+
+Cher journal, 
+La semaine dernière, j'ai commencé le HTML du mini-projet. Au début, j'ai eu énormément de mal. Mais la documentation Bulma était assez claire, j'ai pu expérimenter différentes chose. Par exemple, la documentation m'a indiqué que pour avoir du rouge on devait écrire Danger, et que pour avoir du gris clair il fallait écrire grey-light. J'ai donc combiné les deux afin d'avoir du rose. (malheureusment le rose tres clair (danger-lighter)n'existe pas). 
+je me suis beaucoup aidé des slides présent sur le github de Monsieur Dupont afin d'effectuer le reste. 
+Je copiais collais, voyais ce qui marchait, ce qui ne marchait pas, puis grâce à ça j'ai commencé à comprendre qu'est ce qui correspond à quoi, et donc pouvoir être un petit peu plus indépendante. 
+Je crois que j'ai lancé le fichier de mon site au moins une centaine de fois, pour regarder de quelle maniere chaque changement affectait le site. 
+Je suis très satisfaite de ma page contenant le tableau, mais un peu moins de celle de présentation. 
+ça me plairait bien de refaire quelque chose de similaire. 
